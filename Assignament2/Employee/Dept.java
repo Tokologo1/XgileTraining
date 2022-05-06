@@ -6,15 +6,15 @@ public class Dept {
     private String location;
     private double budget;
     private int manager_id;
-    private Employee employee = new Employee();
-    private ArrayList<Employee> num_of_employees;
+    private ArrayList<Employee> employee = new ArrayList<Employee>();
+    private int num_of_employees;
 
    
     public Dept() {
     }
-    
 
-    public Dept(String dept_name, String location, double budget, int manager_id, ArrayList<Employee> num_of_employees) {
+
+    public Dept(String dept_name, String location, double budget, int manager_id, int num_of_employees) {
         
         this.dept_name = dept_name;
         this.location = location;
@@ -23,38 +23,47 @@ public class Dept {
         this.num_of_employees = num_of_employees;
     }
 
-    public ArrayList<Employee> getEmployees() {
-        this.employee=new Employee();
-        return num_of_employees;
+    
+
+    public void setEmployees(ArrayList<Employee> employee) {
+        this.employee = employee;
     }
 
-    public void setEmployees(ArrayList<Employee> num_of_employees) {
-        this.num_of_employees = num_of_employees;
-    }
-
-    public void addEmployee(Employee employee) {
+    public void addEmployee(ArrayList<Employee> employee) {
             this.employee = employee;
 
-        num_of_employees.add(employee);
+        employee.addAll(employee);
     }
 
-    public void removeEmployee(Employee employee) {
+    public void removeEmployee(ArrayList<Employee> employee, int id) {
         this.employee = employee;
-        num_of_employees.remove(employee);
+        employee.remove(id);
     }
 
-    public double deptExpenditure(double budget,double furniture,double books,double other) {
+    public double deptExpenditure(double budget,double month1,double month2,double month3,double month4,double month5,double month6,double month7,double month8,double month9,double month10,double month11,double month12) {
         
-        double deptExpenditure = (budget - furniture - books - other * 12);
-       
-       return deptExpenditure;
+        budget = (month1 + month2 + month3 + month4 + month5 + month6 + month7 + month8 + month9 + month10 + month11 + month12);
+        
+        
+       return budget;
     }
 
     public String toString()
     {
-        return "Department: " + dept_name + " Location: " + location + " Budget: " + budget + " Manager ID: " + manager_id + " Number of Employees: " + num_of_employees;
+        return "Department: " + dept_name + "\n"+"Location: " + location +"\n"+ "Budget: " + budget +"\n"+ "Manager ID: " + manager_id +"\n"+ "Number of Employees: " + num_of_employees;
     }
 
+    public String onBudget(double budget)
+    {
+        if (budget < this.budget)
+        {
+            return "The Department is on Budget";
+        }
+        else
+        {
+            return "The Department is not on Budget";
+        }
+    }
 
     
 }
