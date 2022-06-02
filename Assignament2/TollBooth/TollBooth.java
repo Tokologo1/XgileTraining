@@ -18,7 +18,7 @@ public class TollBooth  {
    public void PayingCar()
    {
       this.Car= Car++;
-     this.Amount=  Amount+=0.50;
+     this.Amount=  Amount+=12.50;
    }
    public void NonPayingCar()
    {
@@ -28,7 +28,7 @@ public class TollBooth  {
    {
        int total_cars;
        Scanner sc=new Scanner(System.in);
-       System.out.println("Total number of cars passed without Payment: " );
+       System.out.println("Total number of cars passed without Payment(Etag): " );
        int car_non_payment= sc.nextInt();     
        System.out.println("Total number of cars passed: " );
        Car= sc.nextInt(); 
@@ -37,10 +37,12 @@ public class TollBooth  {
        {
            throw new Exception("Please Enter the correct number of cars");
        }
-       else
-       {
-           total_cars=Car;
-       }
+         else
+         {
+             
+              System.out.println("Total number of cars passed: "+Car);
+              System.out.println("Total amount collected: "+Amount);
+         }
        System.out.println("Total amount paid is: R" + (Car - car_non_payment) * 0.50);
 
    }
