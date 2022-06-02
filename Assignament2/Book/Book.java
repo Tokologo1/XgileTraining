@@ -75,7 +75,7 @@ public class Book {
             message = "Book titled :" + title[i] + " is available "+"\npublisher: " + Publisher [i]+ "\nAuthor :" + Author[i];
             
         } else {
-            message = "Book is not available";
+          message = "Book is not available";
         }
         count++;
     }
