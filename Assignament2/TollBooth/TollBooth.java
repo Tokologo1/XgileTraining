@@ -1,4 +1,6 @@
 import java.util.Scanner;
+
+
 public class TollBooth  {
 
    protected int id_Booth;
@@ -22,7 +24,7 @@ public class TollBooth  {
    {
        this.Car++;
    }
-   public void Display()
+   public void Display() throws Exception
    {
        int total_cars;
        Scanner sc=new Scanner(System.in);
@@ -30,7 +32,16 @@ public class TollBooth  {
        int car_non_payment= sc.nextInt();     
        System.out.println("Total number of cars passed: " );
        Car= sc.nextInt(); 
-       System.out.println("Total amount paid is: R" + Car * 0.50);
+
+       if(car_non_payment>Car)
+       {
+           throw new Exception("Please Enter the correct number of cars");
+       }
+       else
+       {
+           total_cars=Car;
+       }
+       System.out.println("Total amount paid is: R" + (Car - car_non_payment) * 0.50);
 
    }
 
