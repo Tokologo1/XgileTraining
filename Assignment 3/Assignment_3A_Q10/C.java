@@ -16,7 +16,9 @@ public class C{
         System.out.println("Enter another number: ");
         //Read a line and store it in s
         int b = sc.nextInt();
-        b = Integer.parseInt("Product " + a*b);
+        b = a*b;
+
+        System.out.println("Total number is : "+b);
 
         }catch(NumberFormatException e){
             System.out.println("The Number format is not correct"); 
