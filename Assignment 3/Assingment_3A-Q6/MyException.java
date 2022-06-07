@@ -3,31 +3,33 @@ public class  MyException {
     public static void main(String[] args) {
       
       
-         //Division by Zero invalid division Exeception
+        //Division by Zero invalid division Exeception
            devisionByZero(10,0);
-
-         //String parsed to a numberic variable invalid conversion Exeception
+        //String parsed to a numberic variable invalid conversion Exeception
             parseString("10");
-
-         //Accessing an invalid index in string array Exeception
-            invalidStringArrayIndex(new String[]{"a","b","c"},2);
-            
-          //Accessing an invalid index in  string 
-            inDexString("Tokologo",5);
+        //Accessing an invalid index in string array Exeception
+            invalidStringArrayIndex(2);            
+        //Accessing an invalid index in  string 
+            inDexString(5);
 
     }
 
-    private static void invalidStringArrayIndex(String[] strings, int i) {
+    private static void invalidStringArrayIndex( int i) {
 
         //Accessing an invalid index in string array Exeception  
        
-        
-        
+        try {
+            String[] string = {"Tokologo", "Marothi", "Kamogelo"};
+            System.out.println(string[i]);
+          } catch (Exception e) {
+            System.out.println("Invalid Index");
+          } finally {
+            System.out.println("Exception Handling Completed.");
+          }   
 
 
     }   
    
-
     public static void parseString(String s){
         try{
             int i=Integer.parseInt(s);
@@ -37,7 +39,7 @@ public class  MyException {
             System.out.println("String parsed to a numberic variable invalid conversion Exeception");
         }
         finally{
-            System.out.println("String parsed to a numberic variable invalid conversion Exeception");
+            System.out.println("Exception Handling Completed");
         }
     }
 
@@ -51,17 +53,17 @@ public class  MyException {
             System.out.println("Division by Zero invalid division Exeception");
        }
        finally{
-            System.out.println("Division by Zero invalid division Exeception");
+            System.out.println("Exception Handling Completed");
        }
 
 
        
     }
 
-    public static void inDexString(String str, int i)
+    public static void inDexString(int i)
     {
         try{
-            str="Tokologo";
+            String str="Tokologo";
             System.out.println(str.charAt(i));
             
         }
@@ -69,9 +71,38 @@ public class  MyException {
             System.out.println("Accessing an invalid index in  string ");
         }
         finally{
-            System.out.println("Accessing an invalid index in  string ");
+            System.out.println("Exception Handling Completed");
         }       
         
     }
+
+
+    public static void UserdefinedException(String s) throws MyException.ExceptionH{
+        
+        // if(s.equals("Tokologo")){
+        //         throw new ExceptionH("This is My error Message");
+        //     }
+        //     else{
+        //         System.out.println("This is not a Tokologo");
+        //     }
+    
+           
+    }
+    class ExceptionH extends Exception {
+
+
+        public ExceptionH()
+            {
+
+            }
+        
+        public ExceptionH(String s) {
+            System.out.println("This is My error Message");
+        }
+
+      
+      
+    }
+
     
 }
